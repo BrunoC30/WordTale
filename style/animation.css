@@ -1,0 +1,42 @@
+@keyframes pulando{
+    0%{
+        transform: translateY(-3px);
+    }
+    50%{
+        transform: translateY(3px);
+    }
+    100%{
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes bugado{
+    0%{
+        transform: translateX(-1px);
+        opacity: 100%;
+    }
+    50%{
+        opacity: 80%;
+        transform: translateX(1px);
+    }
+    100%{
+        transform: translateX(-1px);
+        opacity: 90%;
+    }
+}
+
+.head{
+    animation: pulando 1.5s ease-in-out infinite;
+}
+.divisor{
+    animation: pulando 1.7s ease-in-out infinite;
+}
+.divisor2{
+    animation: pulando 1.6s ease-in-out infinite;
+}
+.dummy{
+    transition: opacity 1s ease;
+}
+#letrasUsadas{
+    animation: bugado 0.2s linear infinite;
+}

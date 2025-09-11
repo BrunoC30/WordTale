@@ -1,0 +1,92 @@
+*{
+    padding:0;
+    margin:0;
+}
+body{
+    background-color: #000;
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    height: 100dvh;
+    font-size: 3rem;
+}
+header{
+    display:flex;
+    flex-direction: column;
+    height: 250px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#container{
+    user-select: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr 2fr;
+    height: 300px;
+    width: 600px;
+    border: solid 1px #fff;
+}
+
+
+.interaction{
+    height: 150px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+}
+.head{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    grid-column: 1/4;
+}
+.divisor{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:10px;
+    grid-column: 1/4;
+}
+.divisor2{
+    grid-column: -4/-1;
+    display: flex;
+    justify-content: center;
+    gap:10px;
+}
+.containerLetra{
+    display:flex;
+    height: 30px;
+    width: 60px;
+}
+#receberLetra{
+    background-color: #000;
+    border: none;
+    border: solid 2px #b4b4b4;
+    padding:5px;
+    color:#e2d300;
+}
+.containerLetra{
+    color:#d60505;
+    position: absolute;
+}
+.title{
+    position: relative;
+}
+#submit{
+    height: 30px;
+    width: 60px;
+}
+#tema{
+    color:#e2d300;
+}
+.hide{
+    display:none;
+}

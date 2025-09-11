@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/animation.css">
+    <title>Documento</title>
+</head>
+<body>
+    <header>
+
+        <div class="title">
+            <h1>Word Game</h1>
+            
+        </div>
+        <p id="tema">Tema:</p>
+
+    </header>
+    <main >
+        <div id="container">
+            <div class="containerLetra">
+                <p id="letrasUsadas"></p>
+        
+            </div>
+            
+            <div class="dummy head">O</div>
+
+            <div class="divisor">
+                <div class="dummy arm1">/</div>
+                <div class="dummy torso">|</div>
+                <div class="dummy arm2">\</div>
+            </div>
+
+            <div class="divisor2">
+                <div class="dummy leg1">/</div>
+                <div class="dummy leg2">\</div>
+            </div>
+
+        </div>
+        <div class="interaction ">
+            <p id="palavraSecreta">_ _ _ _</p>
+            <input type="text" placeholder="Letra" maxlength="1" id="receberLetra" autocomplete="off">
+            <button id="submit">Try </button>
+        </div>
+
+        </main>
+<script src="script.js"></script>
+</body>
+</html>
