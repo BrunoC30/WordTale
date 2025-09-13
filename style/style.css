@@ -87,6 +87,14 @@ main{
 #tema{
     color:#e2d300;
 }
+.container2{
+    display: flex;
+    height: 300px;
+    width: 600px;
+    border: solid 1px #fff;
+    justify-content: center;
+    align-items: center;
+}
 .hide{
     display:none;
 }

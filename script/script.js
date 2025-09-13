@@ -6,6 +6,10 @@ const letrasUsadas = document.querySelector("#letrasUsadas");
 const titulo = document.querySelector(".title h1");
 const temaOutPut = document.querySelector("#tema");
 
+//containers
+const container1 = document.querySelector("#container");
+const container2 = document.querySelector(".container2");
+
 //número aleatório
 const gerarNumeroAleatório = (max)=>{
   return  Math.floor(Math.random()*max);
@@ -67,14 +71,15 @@ const anotarLetrasErradas = ()=>{
 
 
 // traços gráficos para representar o numero de palavras
-for(let i=0; i<palavra.length;i++){
+const gerarTracos = ()=>{for(let i=0; i<palavra.length;i++){
     //array misterio para ser comparado
     misterio+="_";
     //apenas ilustração
     tracos+="_ ";
     palavraSecreta.textContent=tracos;
-}
-
+    
+}}
+gerarTracos();
 misterio = misterio.split("");
 
 const substituirLetra = ()=>{
@@ -125,6 +130,8 @@ sub.addEventListener("click", ()=>{
     
     if(vida===0){
         titulo.textContent="You Lost";
+        cenaDeMorte();
+
     } else if(palavra===misterio.join("")){
         titulo.textContent="You Win";
     }
