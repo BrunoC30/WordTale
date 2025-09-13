@@ -6,6 +6,44 @@ const letrasUsadas = document.querySelector("#letrasUsadas");
 const titulo = document.querySelector(".title h1");
 const temaOutPut = document.querySelector("#tema");
 
+
+/* 
+Efeitos sonoros!
+
+indice 0 -> dust
+indice 1 -> broken soul
+indice 2 -> restart
+*/
+const radio = document.querySelector(".audiodiv");
+const musica = document.querySelector("#musica");
+const efeitosDeSom = document.querySelectorAll(".sons");
+
+//eventos musicas
+let ligado = false;
+const gerenciarRadio = ()=>{
+
+    //lógica de ligar e desligar
+    if(ligado){
+        ligado = false;
+        radio.style.opacity="50%";
+        musica.pause();
+    }else{
+        ligado = true;
+        musica.currentTime="0";
+        radio.style.opacity="100%";
+        musica.play();
+    }
+
+}
+//para pc
+radio.addEventListener("click",()=>{
+gerenciarRadio();
+});
+//para celular
+radio.addEventListener("touchstart",()=>{
+gerenciarRadio();
+});
+
 //containers
 const container1 = document.querySelector("#container");
 const container2 = document.querySelector(".container2");
@@ -19,7 +57,7 @@ const gerarNumeroAleatório = (max)=>{
 const temasDepalavras = {
     animais:["cachorro","lobo","gato","porco"],
     frutas:["banana","maracuja","laranja","abacaxi"],
-    humor:["triteza","alegria","raiva","paixao","medo"],
+    humor:["tristeza","alegria","raiva","paixao","medo"],
     filmes:["corra"]
 }
 let numeroAleatorioParaTema = gerarNumeroAleatório(4)+1;
@@ -102,6 +140,8 @@ let vida = 6;
 const membros = document.querySelectorAll(".dummy");
 const membrosSumindo = ()=>{
     membros[vida].style.opacity="0%";
+    efeitosDeSom[0].currentTime=0;
+    efeitosDeSom[0].play();
 }
 
 
@@ -117,7 +157,20 @@ inputLetra.addEventListener("input",()=>{
     }
 })
 
-sub.addEventListener("click", ()=>{
+//para celular
+sub.addEventListener("touchstart", ()=>{
+    sistemaPrincipal();
+});
+//para pc
+inputLetra.addEventListener("keydown",(e)=>{
+    if(e.key==="Enter"){
+        sistemaPrincipal();
+    }
+});
+
+
+function sistemaPrincipal(){
+    {
     if(!(palavra.includes(inputLetra.value.toLowerCase()))){
         vida--;
         membrosSumindo();
@@ -130,9 +183,20 @@ sub.addEventListener("click", ()=>{
     
     if(vida===0){
         titulo.textContent="You Lost";
-        cenaDeMorte();
+        setTimeout(()=>{
+            ligado=false;
+            musica.pause();
+            cenaDeMorte();
+
+        },2000);
 
     } else if(palavra===misterio.join("")){
         titulo.textContent="You Win";
+        setTimeout(()=>{
+            ligado=false;
+            musica.pause();
+            cenaDeVitoria();
+        },2000);
     }
-})
+}
+}

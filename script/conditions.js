@@ -1,18 +1,40 @@
 function cenaDeMorte(){
     container1.style.display="none";
     container2.classList.toggle("hide");
+
     let segundos=0;
-   
+
+    efeitosDeSom[1].play();
+
    const intervalo = setInterval(()=>{
     segundos++;
+    if(segundos===0){
+        container2.textContent="❤️";
+    }
     if(segundos===2){
         container2.textContent="💔";
     }
-    if(segundos===4){
+    if(segundos===3){
         reiniciar();
+        container2.classList.toggle("hide");
         clearInterval(intervalo);
     }
     },1000)
+}
+function cenaDeVitoria(){
+    document.querySelector("body").style.opacity="0%";
+    let segundos = 0;
+    efeitosDeSom[2].play();
+    const intervalo = setInterval(()=>{
+        segundos++;
+
+        if(segundos===5){
+            reiniciar();
+            document.querySelector("body").style.opacity="100%";
+            clearInterval(intervalo);
+        }
+    }
+    ,1000);
 }
 
 function reiniciar(){
@@ -36,7 +58,7 @@ membros.forEach(membro=>{
 })
 //reconfigurando as nova janela
 container1.style.display="grid";
-container2.classList.toggle("hide");
+
 
 //limpando letras da lista negra
 contador=0;
